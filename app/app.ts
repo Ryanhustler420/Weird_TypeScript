@@ -137,3 +137,8 @@ let finalValue = 3;
 if (typeof finalValue == "number") {
     console.log("Final value is a number")
 }
+
+// never type which function never complete that where we use never
+function neverReturns(): never {
+    throw new Error('An error!');
+}
