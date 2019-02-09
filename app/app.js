@@ -34,3 +34,16 @@ var car = "BMW";
 console.log(car);
 car = { brand: "BMW", series: 'M4' };
 console.log(car);
+function returnMyName() {
+    return myName;
+}
+// returnMyName()
+function sayHello() {
+    console.log("hello Gaurav");
+}
+// sayHello();
+// argument types
+function multiply(value1, value2) {
+    return value1 * value2;
+}
+console.log(multiply(2, 22));
