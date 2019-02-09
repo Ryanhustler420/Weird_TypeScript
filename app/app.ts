@@ -64,10 +64,40 @@ function multiply(value1: number, value2: number): number {
 
 // function types
 // only assign function which takes two parameter of type number and number and returns number
-let myMultiply: (val1:number, val2: number) => number;
+let myMultiply: (val1: number, val2: number) => number;
 
 // myMultiply = sayHello;
 // myMultiply(); // throw error because of the function signature
 
 myMultiply = multiply;
 console.log(myMultiply(2, 2));
+
+
+// Objects
+let userData = {
+    name: 'Gaurav',
+    age: 21,
+};
+
+// userData = {}; // throw error beacuse this object must have a number field and age field or property
+
+// this is also not valid because the propert has different name 
+// 'a' must be name
+// 'b' must be age
+
+// userData = { 
+//     a: "hello",
+//     b: 22
+// };
+// this is type defination and not value
+// { name: string, age: number }
+
+let newUserData: { name: string, age: number } = {
+    name: "Gaurav",
+    age: 27
+}
+
+newUserData = {
+    name: 'gaurav',
+    age: 23
+}
