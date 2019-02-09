@@ -109,4 +109,6 @@ canBeNull = null;
 var canAlsoBeNull;
 canAlsoBeNull = null;
 var canThisBeAny = null;
-canThisBeAny = 12;
+// canThisBeAny = 12; // throw an Error coz this will be null only
+var isItNull = 12;
+// isItNull = null; // this will throw an error because tsconfig.ts has permission to not allow different data type to overwrite
