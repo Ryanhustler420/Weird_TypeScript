@@ -48,6 +48,54 @@ function multiply(value1, value2) {
 }
 // console.log(multiply(2, 22));
 // function types
+// only assign function which takes two parameter of type number and number and returns number
 var myMultiply;
+// myMultiply = sayHello;
+// myMultiply(); // throw error because of the function signature
 myMultiply = multiply;
 console.log(myMultiply(2, 2));
+// Objects
+var userData = {
+    name: 'Gaurav',
+    age: 21,
+};
+// userData = {}; // throw error beacuse this object must have a number field and age field or property
+// this is also not valid because the propert has different name 
+// 'a' must be name
+// 'b' must be age
+// userData = { 
+//     a: "hello",
+//     b: 22
+// };
+// this is type defination and not value
+// { name: string, age: number }
+var newUserData = {
+    name: "Gaurav",
+    age: 27
+};
+newUserData = {
+    name: 'gaurav',
+    age: 23
+};
+// Complex Object Example
+var complex = {
+    data: [100, 200, 300, 400],
+    output: function (all) {
+        return this.data;
+    }
+};
+var complex2 = {
+    data: [100, 200, 300, 400],
+    output: function (all) {
+        return this.data;
+    }
+};
+// union type
+var myRealRealAge = 27;
+myRealRealAge = "27";
+// myRealRealAge = boolean; // will throw error
+// check types on run time
+var finalValue = 3;
+if (typeof finalValue == "number") {
+    console.log("Final value is a number");
+}
