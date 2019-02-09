@@ -60,4 +60,14 @@ function multiply(value1: number, value2: number): number {
     return value1 * value2;
 }
 
-console.log(multiply(2, 22));
+// console.log(multiply(2, 22));
+
+// function types
+// only assign function which takes two parameter of type number and number and returns number
+let myMultiply: (val1:number, val2: number) => number;
+
+// myMultiply = sayHello;
+// myMultiply(); // throw error because of the function signature
+
+myMultiply = multiply;
+console.log(myMultiply(2, 2));

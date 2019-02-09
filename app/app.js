@@ -46,4 +46,8 @@ function sayHello() {
 function multiply(value1, value2) {
     return value1 * value2;
 }
-console.log(multiply(2, 22));
+// console.log(multiply(2, 22));
+// function types
+var myMultiply;
+myMultiply = multiply;
+console.log(myMultiply(2, 2));
