@@ -142,3 +142,13 @@ if (typeof finalValue == "number") {
 function neverReturns(): never {
     throw new Error('An error!');
 }
+
+// Nullable Types
+let canBeNull: number | null = 12;
+canBeNull = null;
+let canAlsoBeNull;
+canAlsoBeNull = null;
+let canThisBeAny: null = null;
+// canThisBeAny = 12; // throw an Error coz this will be null only
+let isItNull = 12;
+// isItNull = null; // this will throw an error because tsconfig.ts has permission to not allow different data type to overwrite

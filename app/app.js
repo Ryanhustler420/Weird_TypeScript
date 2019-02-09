@@ -99,3 +99,14 @@ var finalValue = 3;
 if (typeof finalValue == "number") {
     console.log("Final value is a number");
 }
+// never type which function never complete that where we use never
+function neverReturns() {
+    throw new Error('An error!');
+}
+// Nullable Types
+var canBeNull = 12;
+canBeNull = null;
+var canAlsoBeNull;
+canAlsoBeNull = null;
+var canThisBeAny = null;
+canThisBeAny = 12;
