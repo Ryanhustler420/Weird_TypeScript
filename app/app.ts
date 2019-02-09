@@ -101,3 +101,14 @@ newUserData = {
     name: 'gaurav',
     age: 23
 }
+
+// Complex Object Example
+
+let complex: { data: number[], output: (all: boolean) => number[] } = {
+    data: [100, 200, 300, 400],
+    output: function (all: boolean) {
+        return this.data;
+    }
+}
+
+// complex = {} // will throw an error
