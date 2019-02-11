@@ -71,3 +71,32 @@ class Helper {
 
 console.log(Helper.PI * 2);
 console.log(Helper.calcCircumference(8));
+
+// Abstract Classes
+
+// it may be helpfull for basic setup for any classes not this class won't instanciat 
+// you can bundle some generall functionallty which should provide basci blue print to child calss
+// but remember it will never instanciat. so, Keep that in mind.
+abstract class Project {
+    projectName: string = "Default";
+    budget: number = 0;
+
+    abstract changeName(name: string): void;
+
+    clacBudget() {
+        return this.budget * 2;
+    }
+}
+
+class ITProject extends Project {
+    changeName(name: string): void {
+        // set the login the way you want to set
+        this.projectName = name;
+    }
+}
+
+
+let newProject = new ITProject();
+console.log(newProject);
+newProject.changeName('Super IT Project');
+console.log(newProject);

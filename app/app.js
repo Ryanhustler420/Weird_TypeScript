@@ -81,3 +81,30 @@ var Helper = /** @class */ (function () {
 }());
 console.log(Helper.PI * 2);
 console.log(Helper.calcCircumference(8));
+// Abstract Classes
+// it may be helpfull for basic setup for any classes not this class won't instanciat 
+var Project = /** @class */ (function () {
+    function Project() {
+        this.projectName = "Default";
+        this.budget = 0;
+    }
+    Project.prototype.clacBudget = function () {
+        return this.budget * 2;
+    };
+    return Project;
+}());
+var ITProject = /** @class */ (function (_super) {
+    __extends(ITProject, _super);
+    function ITProject() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ITProject.prototype.changeName = function (name) {
+        // set the login the way you want to set
+        this.projectName = name;
+    };
+    return ITProject;
+}(Project));
+var newProject = new ITProject();
+console.log(newProject);
+newProject.changeName('Super IT Project');
+console.log(newProject);
