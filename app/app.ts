@@ -100,3 +100,26 @@ let newProject = new ITProject();
 console.log(newProject);
 newProject.changeName('Super IT Project');
 console.log(newProject);
+
+// private constructors
+
+class OnlyOne {
+    // Added 'static', bucause we can use it like [OnlyOne.instance]. and
+    // if not 'static' than this will be 'onlyOne = new OnlyOne('the Only One); onlyOne.instance'
+    // which is not what we want
+    private static instance: OnlyOne;
+
+    private constructor(public name: string) { }
+
+    static getInstance() {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
+    }
+}
+
+// Singleton Class which gives only one instance at runtime.
+
+// let wrong = new OnlyOne('The Only One'); // wrong way
+let right = OnlyOne.getInstance(); // right way
