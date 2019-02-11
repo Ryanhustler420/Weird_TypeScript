@@ -69,3 +69,15 @@ plant.species = "AB";
 console.log(plant.species);
 plant.species = "Green Plant";
 console.log(plant.species);
+// Static Properties & Methods
+var Helper = /** @class */ (function () {
+    function Helper() {
+    }
+    Helper.calcCircumference = function (diameter) {
+        return this.PI * diameter;
+    };
+    Helper.PI = 3.14; // by default value
+    return Helper;
+}());
+console.log(Helper.PI * 2);
+console.log(Helper.calcCircumference(8));

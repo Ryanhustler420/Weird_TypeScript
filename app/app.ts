@@ -59,3 +59,15 @@ console.log(plant.species);
 
 plant.species = "Green Plant";
 console.log(plant.species);
+
+// Static Properties & Methods
+
+class Helper {
+    static PI: number = 3.14; // by default value
+    static calcCircumference(diameter: number): number {
+        return this.PI * diameter;
+    }
+}
+
+console.log(Helper.PI * 2);
+console.log(Helper.calcCircumference(8));
