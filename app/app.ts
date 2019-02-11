@@ -22,3 +22,17 @@ class Person {
 }
 const person = new Person('Gaurav', 'Owner');
 person.printAge();
+
+// Inheritance
+
+class ThisUser extends Person {
+    name = "Gaurav";
+    constructor() {
+        super(name, 'Employee');
+        this.healt = 50;
+        // console.log(this.type) can't access!
+    }
+}
+
+const gaurav = new ThisUser();
+console.log(gaurav)
