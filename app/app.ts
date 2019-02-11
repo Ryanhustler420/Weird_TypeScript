@@ -108,8 +108,11 @@ class OnlyOne {
     // if not 'static' than this will be 'onlyOne = new OnlyOne('the Only One); onlyOne.instance'
     // which is not what we want
     private static instance: OnlyOne;
+    public readonly name: string;
 
-    private constructor(public name: string) { }
+    private constructor(name: string) {
+        this.name = name;
+    }
 
     static getInstance() {
         if (!OnlyOne.instance) {
@@ -123,3 +126,6 @@ class OnlyOne {
 
 // let wrong = new OnlyOne('The Only One'); // wrong way
 let right = OnlyOne.getInstance(); // right way
+
+console.log(right.name);
+// right.name = 'Somthing else'; // throw error because this property is readOnly

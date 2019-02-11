@@ -83,6 +83,8 @@ console.log(Helper.PI * 2);
 console.log(Helper.calcCircumference(8));
 // Abstract Classes
 // it may be helpfull for basic setup for any classes not this class won't instanciat 
+// you can bundle some generall functionallty which should provide basci blue print to child calss
+// but remember it will never instanciat. so, Keep that in mind.
 var Project = /** @class */ (function () {
     function Project() {
         this.projectName = "Default";
@@ -108,3 +110,20 @@ var newProject = new ITProject();
 console.log(newProject);
 newProject.changeName('Super IT Project');
 console.log(newProject);
+// private constructors
+var OnlyOne = /** @class */ (function () {
+    function OnlyOne(name) {
+        this.name = name;
+    }
+    OnlyOne.getInstance = function () {
+        if (!OnlyOne.instance) {
+            OnlyOne.instance = new OnlyOne('The Only One');
+        }
+        return OnlyOne.instance;
+    };
+    return OnlyOne;
+}());
+// Singleton Class which gives only one instance at runtime.
+// let wrong = new OnlyOne('The Only One'); // wrong way
+var right = OnlyOne.getInstance(); // right way
+console.log(right.name);
