@@ -7,7 +7,18 @@ class Person {
     constructor(name: string, type: string) {
         this.name = name;
         this.type = type;
-        this.healt = 100;
-    }}
+        this.healt = 200;
+    }
+    printAge() {
+        console.log(this.healt);
+        this.setType("CEO")
+    }
+
+    private setType(type: string) {
+        this.type = type;
+        console.log(this.type)
+    }
+
+}
 const person = new Person('Gaurav', 'Owner');
-console.log(person);
+person.printAge();

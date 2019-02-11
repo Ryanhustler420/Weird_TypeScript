@@ -5,9 +5,17 @@ var Person = /** @class */ (function () {
     function Person(name, type) {
         this.name = name;
         this.type = type;
-        this.healt = 100;
+        this.healt = 200;
     }
+    Person.prototype.printAge = function () {
+        console.log(this.healt);
+        this.setType("CEO");
+    };
+    Person.prototype.setType = function (type) {
+        this.type = type;
+        console.log(this.type);
+    };
     return Person;
 }());
 var person = new Person('Gaurav', 'Owner');
-console.log(person);
+person.printAge();
