@@ -1,10 +1,13 @@
 var MyMath;
 (function (MyMath) {
-    var PI = 3.14;
-    function calculateCircumference(diameter) {
-        return diameter * PI;
-    }
-    MyMath.calculateCircumference = calculateCircumference;
+    var Circle;
+    (function (Circle) {
+        var PI = 3.14;
+        function calculateCircumference(diameter) {
+            return diameter * PI;
+        }
+        Circle.calculateCircumference = calculateCircumference;
+    })(Circle = MyMath.Circle || (MyMath.Circle = {}));
 })(MyMath || (MyMath = {}));
 var MyMath;
 (function (MyMath) {
@@ -17,7 +20,7 @@ var MyMath;
 /// <reference path="rectangleMath.ts" />
 var PI = 2.23232;
 console.log(MyMath.calculateRectangle(10, 20));
-console.log(MyMath.calculateCircumference(20));
+console.log(MyMath.Circle.calculateCircumference(20));
 console.log(PI);
 // Run this command
 // tsc .\app.ts --outFile .\app.js
