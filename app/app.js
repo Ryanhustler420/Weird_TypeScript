@@ -13,9 +13,11 @@ var MyMath;
     }
     MyMath.calculateRectangle = calculateRectangle;
 })(MyMath || (MyMath = {}));
-var PI = 2.44;
+/// <reference path="circleMath.ts" />
+/// <reference path="rectangleMath.ts" />
+var PI = 2.23232;
 console.log(MyMath.calculateRectangle(10, 20));
 console.log(MyMath.calculateCircumference(20));
 console.log(PI);
-// run this 
-// tsc --outFile app.js .\circleMath.ts .\rectangleMath.ts .\app.ts
+// Run this command
+// tsc .\app.ts --outFile .\app.js
