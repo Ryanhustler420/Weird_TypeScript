@@ -36,3 +36,26 @@ class ThisUser extends Person {
 
 const gaurav = new ThisUser();
 console.log(gaurav)
+
+
+// Getters & Setters
+class Plant {
+    private _species: string = "Default";
+
+    get species() {
+        return this._species.toUpperCase();
+    }
+
+    set species(value: string) {
+        value.length > 3 ? this._species = value : this._species = "Default";
+    }
+}
+
+let plant = new Plant();
+console.log(plant.species);
+
+plant.species = "AB";
+console.log(plant.species);
+
+plant.species = "Green Plant";
+console.log(plant.species);

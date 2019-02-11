@@ -38,9 +38,34 @@ var ThisUser = /** @class */ (function (_super) {
     function ThisUser() {
         var _this = _super.call(this, name, 'Employee') || this;
         _this.name = "Gaurav";
+        _this.healt = 50;
         return _this;
+        // console.log(this.type) can't access!
     }
     return ThisUser;
 }(Person));
 var gaurav = new ThisUser();
 console.log(gaurav);
+// Getters & Setters
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this._species = "Default";
+    }
+    Object.defineProperty(Plant.prototype, "species", {
+        get: function () {
+            return this._species.toUpperCase();
+        },
+        set: function (value) {
+            value.length > 3 ? this._species = value : this._species = "Default";
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Plant;
+}());
+var plant = new Plant();
+console.log(plant.species);
+plant.species = "AB";
+console.log(plant.species);
+plant.species = "Green Plant";
+console.log(plant.species);
