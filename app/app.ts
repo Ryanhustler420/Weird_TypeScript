@@ -1,6 +1,10 @@
-import { PI, calculateCircumference } from './math/circle';
+// import { PI, calculateCircumference } from './math/circle';
+import * as Circle from './math/circle';
+// import { calculateRectangle } from './math/rectangle';
+import CalcRectangle from './math/rectangle';
 
-console.log(PI, calculateCircumference(20));
+console.log(Circle.PI, Circle.calculateCircumference(20));
+console.log(CalcRectangle(20, 50));
 
 // run these and check
 // tsc
