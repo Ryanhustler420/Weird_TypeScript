@@ -3,6 +3,9 @@
 
 interface NamedPerson {
     firstName: string;
+    age?: number; // this could be available or not but the key must be age
+    [propName: string]: any // here we dont know that what the key would be
+    // checkAge: (age: number, currentYear: number) => boolean;
 }
 
 
@@ -28,9 +31,12 @@ function changeName(person: NamedPerson) {
 
 const person = {
     firstName: 'Gaurav',
-    age: 21
+    hobbies: ['Cooking', 'Sports']
 }
 
 greet(person);
+// greet({ firstName: 'Gaurav', age: 27 }); // this will check if you pass object literal directly. this will throw error
+greet({ firstName: 'Gaurav', age: 27 }); // this is possible if you put optional property in NamedPerson interface using ? mark
+greet({ firstName: 'Gaurav' });
 changeName(person);
 greet(person);

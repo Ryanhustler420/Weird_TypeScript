@@ -17,8 +17,11 @@ function changeName(person) {
 }
 var person = {
     firstName: 'Gaurav',
-    age: 21
+    age: 21,
+    hobbies: ['Cooking', 'Sports']
 };
-greet(person);
+// greet({ firstName: 'Gaurav', age: 27 }); // this will check if you pass object literal directly. this will throw error
+greet({ firstName: 'Gaurav', age: 27 }); // this is possible if you put optional property in NamedPerson interface using ? mark
+greet({ firstName: 'Gaurav' });
 changeName(person);
 greet(person);
