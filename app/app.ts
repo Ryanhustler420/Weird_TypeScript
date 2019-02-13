@@ -1,13 +1,36 @@
-// import { PI, calculateCircumference } from './math/circle';
-import * as Circle from './math/circle';
-// import { calculateRectangle } from './math/rectangle';
-import CalcRectangle from './math/rectangle';
+// Interfaces
 
-console.log(Circle.PI, Circle.calculateCircumference(20));
-console.log(CalcRectangle(20, 50));
 
-// typeScript is very claver to resolve the path of import
-// it will see if the path is relative or absolute
-// if the path is absolute than typeScript will look that file into
-// node modules by default and if you have ambien than that will export that file
-// for entire project. 
+interface NamedPerson {
+    firstName: string;
+}
+
+
+// function greet(person: any) {
+//     console.log(`hello ${person.name}`);
+// }
+
+// function greet(person: { name: string }) {
+//     console.log(`hello ${person.name}`);
+// }
+
+function greet(person: NamedPerson) {
+    console.log(`hello ${person.firstName}`);
+}
+
+// function changeName(person: { name: string }) {
+//     person.name = "Saurav";
+// }
+
+function changeName(person: NamedPerson) {
+    person.firstName = "Saurav";
+}
+
+const person = {
+    firstName: 'Gaurav',
+    age: 21
+}
+
+greet(person);
+changeName(person);
+greet(person);
