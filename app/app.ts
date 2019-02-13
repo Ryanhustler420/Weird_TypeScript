@@ -6,14 +6,8 @@ import CalcRectangle from './math/rectangle';
 console.log(Circle.PI, Circle.calculateCircumference(20));
 console.log(CalcRectangle(20, 50));
 
-// run these and check
-// tsc
-// tsc --outFile .\app.js
-// tsc .\app.ts --outFile .\app.js
-
-
-// A popular module loader is Systemjs
-
-// refer [here](https://github.com/systemjs/systemjs)
-// install package for systemjs
-// npm i --save systemjs
+// typeScript is very claver to resolve the path of import
+// it will see if the path is relative or absolute
+// if the path is absolute than typeScript will look that file into
+// node modules by default and if you have ambien than that will export that file
+// for entire project. 
