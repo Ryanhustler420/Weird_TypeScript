@@ -1,26 +1,12 @@
-var MyMath;
-(function (MyMath) {
-    var Circle;
-    (function (Circle) {
-        var PI = 3.14;
-        function calculateCircumference(diameter) {
-            return diameter * PI;
-        }
-        Circle.calculateCircumference = calculateCircumference;
-    })(Circle = MyMath.Circle || (MyMath.Circle = {}));
-})(MyMath || (MyMath = {}));
-var MyMath;
-(function (MyMath) {
-    function calculateRectangle(width, length) {
-        return width * length;
-    }
-    MyMath.calculateRectangle = calculateRectangle;
-})(MyMath || (MyMath = {}));
-/// <reference path="circleMath.ts" />
-/// <reference path="rectangleMath.ts" />
-var PI = 2.23232;
-console.log(MyMath.calculateRectangle(10, 20));
-console.log(MyMath.Circle.calculateCircumference(20));
-console.log(PI);
-// Run this command
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var circle_1 = require("./math/circle");
+console.log(circle_1.PI, circle_1.calculateCircumference(20));
+// run these and check
+// tsc
+// tsc --outFile .\app.js
 // tsc .\app.ts --outFile .\app.js
+// A popular module loader is Systemjs
+// refer [here](https://github.com/systemjs/systemjs)
+// install package for systemjs
+// npm i --save systemjs

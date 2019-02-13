@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Example</title>
-    <script src="./app.js"></script>
+    <!-- <script src="./app.js"></script> -->
+    <script src="node_modules/systemjs/dist/system.js"></script>
+
+    <script>
+        SystemJS.config({
+            baseURL: '/',
+            packages: {
+                '/': {
+                    defaultJSExtensions: true
+                }
+            }
+        });
+
+        SystemJS.import('./app.js')
+    </script>
 </head>
 
 <body>
+
+    <script>
+        SystemJS.import('/js/main.js');
+    </script>
 
 </body>
 

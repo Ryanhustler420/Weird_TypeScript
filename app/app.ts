@@ -1,15 +1,15 @@
-/// <reference path="circleMath.ts" />
-/// <reference path="rectangleMath.ts" />
+import { PI, calculateCircumference } from './math/circle';
 
-// its like alice
-import CircleMath = MyMath.Circle;
+console.log(PI, calculateCircumference(20));
 
-const PI = 2.23232;
-
-console.log(MyMath.calculateRectangle(10, 20));
-// console.log(MyMath.Circle.calculateCircumference(20));
-console.log(CircleMath.calculateCircumference(20));
-console.log(PI);
-
-// Run this command
+// run these and check
+// tsc
+// tsc --outFile .\app.js
 // tsc .\app.ts --outFile .\app.js
+
+
+// A popular module loader is Systemjs
+
+// refer [here](https://github.com/systemjs/systemjs)
+// install package for systemjs
+// npm i --save systemjs
