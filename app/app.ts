@@ -24,3 +24,12 @@ const testResult: Array<number> = [1.94,2.33];
 testResult.push(-2.99);
 // testResult.push("String") // wrong
 console.log(testResult);
+
+// Arrays
+
+function printALl<T>(args: T[]) {
+    args.forEach(console.log);
+}
+
+printALl(['Apple','Banana']);
+printALl<string>(['Apple','Banana']);
