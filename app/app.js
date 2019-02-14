@@ -1,30 +1,19 @@
 "use strict";
-// Excersice
-var Map = /** @class */ (function () {
-    function Map() {
-        this.map = {};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+function logged(constructorFn) {
+    console.log(constructorFn);
+}
+var Person = /** @class */ (function () {
+    function Person() {
+        console.log('Hi');
     }
-    Map.prototype.setItem = function (key, item) {
-        this.map[key] = item;
-    };
-    Map.prototype.getItem = function (key) {
-        return this.map[key];
-    };
-    Map.prototype.clear = function () {
-        this.map = {};
-    };
-    Map.prototype.printMap = function () {
-        for (var key in this.map) {
-            console.log(key, this.map[key]);
-        }
-    };
-    return Map;
+    Person = __decorate([
+        logged
+    ], Person);
+    return Person;
 }());
-var numberMap = new Map();
-numberMap.setItem('apples', 5);
-numberMap.setItem('bananas', 10);
-numberMap.printMap();
-var stringMap = new Map();
-stringMap.setItem('name', 'Gaurav');
-stringMap.setItem('age', "27");
-stringMap.printMap();
