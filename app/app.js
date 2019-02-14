@@ -42,3 +42,14 @@ var myPerson = new Person();
 myPerson.firstName = "Ram";
 greet(myPerson);
 myPerson.greet('Everyone');
+var myDoubleFunc;
+myDoubleFunc = function (value1, value2) {
+    return (value1 + value2) * 2;
+};
+console.log(myDoubleFunc(10, 20));
+// interface NamedPerson {
+//     firstName: string;
+//     age?: number;
+//     [propName: string]: any
+//     greet: DoubleValueFunc
+// }

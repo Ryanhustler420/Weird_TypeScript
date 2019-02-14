@@ -58,3 +58,24 @@ const myPerson = new Person();
 myPerson.firstName = "Ram";
 greet(myPerson);
 myPerson.greet('Everyone');
+
+// Function Types
+
+interface DoubleValueFunc {
+    (number1: number, number2: number): number;
+}
+
+let myDoubleFunc: DoubleValueFunc;
+
+myDoubleFunc = function (value1: number, value2: number) {
+    return (value1 + value2) * 2;
+}
+
+console.log(myDoubleFunc(10, 20));
+
+// interface NamedPerson {
+//     firstName: string;
+//     age?: number;
+//     [propName: string]: any
+//     greet: DoubleValueFunc
+// }
