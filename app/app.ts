@@ -33,3 +33,12 @@ function printALl<T>(args: T[]) {
 
 printALl(['Apple','Banana']);
 printALl<string>(['Apple','Banana']);
+
+// Generic Types
+
+// const echo2: <T>(data: T) => T = echo;
+
+type funcType = <T>(data: T) => T;
+const echo2: funcType = betterEcho; // betterEcho function signature fits in this type that why we can assign that function into it
+
+console.log(echo2<string>('Something'))

@@ -29,3 +29,5 @@ function printALl(args) {
 }
 printALl(['Apple', 'Banana']);
 printALl(['Apple', 'Banana']);
+var echo2 = betterEcho; // betterEcho function signature fits in this type that why we can assign that function into it
+console.log(echo2('Something'));
