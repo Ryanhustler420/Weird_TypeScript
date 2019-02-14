@@ -45,3 +45,16 @@ greet(person);
 changeName(person);
 greet(person);
 person.greet('Everyone')
+
+
+class Person implements NamedPerson {
+    firstName: string = '';
+    greet(lastName: string) {
+        console.log(`Hi I am ${this.firstName} ${lastName}`)
+    }
+}
+
+const myPerson = new Person();
+myPerson.firstName = "Ram";
+greet(myPerson);
+myPerson.greet('Everyone');

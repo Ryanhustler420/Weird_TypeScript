@@ -29,3 +29,16 @@ greet(person);
 changeName(person);
 greet(person);
 person.greet('Everyone');
+var Person = /** @class */ (function () {
+    function Person() {
+        this.firstName = '';
+    }
+    Person.prototype.greet = function (lastName) {
+        console.log("Hi I am " + this.firstName + " " + lastName);
+    };
+    return Person;
+}());
+var myPerson = new Person();
+myPerson.firstName = "Ram";
+greet(myPerson);
+myPerson.greet('Everyone');
