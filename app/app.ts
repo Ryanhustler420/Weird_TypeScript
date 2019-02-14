@@ -10,10 +10,17 @@ console.log(echo({ name: "Gaurav", age: 27 }))
 // Better Generic 
 function betterEcho<T>(data: T) {
     return data;}
-    
+
 // console.log(betterEcho<string>('Gaurav'));
 // console.log(betterEcho<number>(27));
 // console.log(betterEcho<Object>({ name: "Gaurav", age: 27 }))
 console.log(betterEcho('Gaurav').length);
 // console.log(betterEcho(27).length); // throw error
 console.log(betterEcho({ name: "Gaurav", age: 27 }))
+
+
+// Build-in Generics
+const testResult: Array<number> = [1.94,2.33];
+testResult.push(-2.99);
+// testResult.push("String") // wrong
+console.log(testResult);
