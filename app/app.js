@@ -17,23 +17,18 @@ var Person = /** @class */ (function () {
     ], Person);
     return Person;
 }());
-// tsc -W FOR continued watching
 var Auth = /** @class */ (function () {
     function Auth() {
-        this.url = {
-            username: '',
-            password: ''
-        };
+        this._userData = {};
         this.calls = [];
     }
-    Auth.prototype.check = function (username, password) {
-        this.url.username = username;
-        this.url.password = password;
+    Auth.prototype.check = function (credential) {
+        this._userData = credential;
         this.calls.push(true);
         return this;
     };
     Auth.prototype.passwordMustBeString = function () {
-        if (typeof this.url.password === 'string') {
+        if (typeof this._userData.password === 'string') {
             this.calls.push(true);
         }
         else {
@@ -41,8 +36,8 @@ var Auth = /** @class */ (function () {
         }
         return this;
     };
-    Auth.prototype.passwordMustBeGraterThan = function (minLength) {
-        if (this.url.password.length > minLength) {
+    Auth.prototype.passwordLengthMustBeGraterThan = function (minLength) {
+        if (this._userData.password != undefined && (this._userData.password.toString().length > minLength)) {
             this.calls.push(true);
         }
         else {
@@ -50,8 +45,8 @@ var Auth = /** @class */ (function () {
         }
         return this;
     };
-    Auth.prototype.passwordMustBeLessThan = function (maxLength) {
-        if (this.url.password.length < maxLength) {
+    Auth.prototype.passwordLengthMustBeLessThan = function (maxLength) {
+        if (this._userData.password != undefined && (this._userData.password.toString().length < maxLength)) {
             this.calls.push(true);
         }
         else {
@@ -64,19 +59,34 @@ var Auth = /** @class */ (function () {
     };
     Auth.prototype.done = function (cb) {
         if (!this.calls.some(this.isFalse)) {
-            return cb(null, 'All Ok');
+            return cb(null, this._userData);
         }
         else {
             return cb('Error', null);
         }
     };
+    Auth.prototype.basicCheck = function () {
+    };
+    Auth.prototype.AverageCheck = function () {
+    };
+    Auth.prototype.AdvanceCheck = function () {
+    };
     return Auth;
 }());
+var userCredential = {
+    FirstName: 'Gaurav',
+    LastName: 'Gupta',
+    email: 'gouravgupta840@gmail.com',
+    password: "983571",
+    confirmPassword: '983571',
+    phoneNumber: '983571',
+    username: 'Gauravsagro'
+};
 new Auth()
-    .check('gaurav', '123456')
+    .check(userCredential)
     .passwordMustBeString()
-    .passwordMustBeGraterThan(6)
-    .passwordMustBeLessThan(10)
+    .passwordLengthMustBeGraterThan(5)
+    .passwordLengthMustBeLessThan(10)
     .done(function (err, success) {
     console.log(err, success);
 });
