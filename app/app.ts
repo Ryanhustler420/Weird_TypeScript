@@ -79,3 +79,19 @@ console.log(myDoubleFunc(10, 20));
 //     [propName: string]: any
 //     greet: DoubleValueFunc
 // }
+
+// Interface Inheritance
+
+interface AgedPerson extends NamedPerson {
+    age: number;
+}
+
+const oldPerson: AgedPerson = {
+    age: 27,
+    firstName: "Gaurav",
+    greet(lastName: string) {
+        console.log('Hello');
+    }
+}
+
+console.log(oldPerson);

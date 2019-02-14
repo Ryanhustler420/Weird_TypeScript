@@ -47,9 +47,11 @@ myDoubleFunc = function (value1, value2) {
     return (value1 + value2) * 2;
 };
 console.log(myDoubleFunc(10, 20));
-// interface NamedPerson {
-//     firstName: string;
-//     age?: number;
-//     [propName: string]: any
-//     greet: DoubleValueFunc
-// }
+var oldPerson = {
+    age: 27,
+    firstName: "Gaurav",
+    greet: function (lastName) {
+        console.log('Hello');
+    }
+};
+console.log(oldPerson);
