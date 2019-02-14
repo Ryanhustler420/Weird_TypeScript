@@ -8,36 +8,70 @@ class Person {
    }
 }
 
+// tsc -W FOR continued watching
+
 class Auth {
 
-    private static instance: Auth;
-    static url: string;
-
-    constructor() {
-        if (Auth.instance) {
-            return Auth.instance;
-        }
-        Auth.instance = this;
+    private url: { username: string, password: string } = {
+        username: '',
+        password: ''
     }
-
-    request(url: string): Auth {
-        Auth.url = url;
+    private calls: boolean[] = [];
+    check(username: string, password: string) {
+        this.url.username = username
+        this.url.password = password
+        this.calls.push(true);
+        return this;
+    }
+    passwordMustBeString() {
+        if (typeof this.url.password === 'string') {
+            this.calls.push(true);
+        } else {
+            this.calls.push(false);
+         }
+        return this;
+    }
+    passwordMustBeGraterThan(minLength: number) {
+        if (this.url.password.length > minLength) {
+            this.calls.push(true);
+        } else {
+            this.calls.push(false);
+        }
+        return this;
+    }
+    passwordMustBeLessThan(maxLength: number) {
+        if (this.url.password.length < maxLength) {
+            this.calls.push(true);
+        } else {
+            this.calls.push(false);
+        }
         return this;
     }
 
-    check(username: string, password: string, cb: Function): Function {
-        return cb(null, true);
+    isFalse(el: boolean) {
+        return el === false
     }
+
+    done(cb: Function): Function {
+        if (!this.calls.some(this.isFalse)) {
+            return cb(null, 'All Ok')
+        } else {
+            return cb('Error', null);
+        }
+    }
+
 }
 
-let auth = new Auth();
-auth.request('api/user/auth')
-    .check('gaurav', '123456', (err: any, success: any) => {
-    if(err){
-        return console.log('Error');
-    }
-    console.log('Auth Successfully Completed')
-})
+type str_OR_null = string | null;
+
+new Auth()
+    .check('gaurav', '123456')
+    .passwordMustBeString()
+    .passwordMustBeGraterThan(6)
+    .passwordMustBeLessThan(10)
+    .done((err: str_OR_null, success: str_OR_null) => {
+        console.log(err, success);
+    });
 
 // let second = new Auth();
 // console.log(first===second);

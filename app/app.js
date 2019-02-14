@@ -17,31 +17,72 @@ var Person = /** @class */ (function () {
     ], Person);
     return Person;
 }());
+// tsc -W FOR continued watching
 var Auth = /** @class */ (function () {
     function Auth() {
-        if (Auth.instance) {
-            return Auth.instance;
-        }
-        Auth.instance = this;
+        this.url = {
+            username: '',
+            password: ''
+        };
+        this.calls = [];
     }
-    Auth.prototype.request = function (url) {
-        Auth.url = url;
+    Auth.prototype.check = function (username, password) {
+        this.url.username = username;
+        this.url.password = password;
+        this.calls.push(true);
         return this;
     };
-    Auth.prototype.check = function (username, password, cb) {
-        return cb(true, true);
+    Auth.prototype.passwordMustBeString = function () {
+        if (typeof this.url.password === 'string') {
+            this.calls.push(true);
+        }
+        else {
+            this.calls.push(false);
+        }
+        return this;
+    };
+    Auth.prototype.passwordMustBeGraterThan = function (minLength) {
+        if (this.url.password.length > minLength) {
+            this.calls.push(true);
+        }
+        else {
+            this.calls.push(false);
+        }
+        return this;
+    };
+    Auth.prototype.passwordMustBeLessThan = function (maxLength) {
+        if (this.url.password.length < maxLength) {
+            this.calls.push(true);
+        }
+        else {
+            this.calls.push(false);
+        }
+        return this;
+    };
+    Auth.prototype.isFalse = function (el) {
+        return el === false;
+    };
+    Auth.prototype.done = function (cb) {
+        if (!this.calls.some(this.isFalse)) {
+            return cb(null, 'All Ok');
+        }
+        else {
+            return cb('Error', null);
+        }
     };
     return Auth;
 }());
-var auth = new Auth();
-auth.request('api/user/auth')
-    .check('gaurav', '123456', function (err, success) {
-    if (err) {
-        return console.log('Error');
-    }
-    console.log('Auth Successfully Completed');
+new Auth()
+    .check('gaurav', '123456')
+    .passwordMustBeString()
+    .passwordMustBeGraterThan(6)
+    .passwordMustBeLessThan(10)
+    .done(function (err, success) {
+    console.log(err, success);
 });
 // let second = new Auth();
 // console.log(first===second);
+// database
+// authentication
 // 1. connect to the database according to NODE_ENV
 // 2. Populate data my method call and passes the require data
