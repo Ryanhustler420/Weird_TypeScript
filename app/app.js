@@ -31,3 +31,16 @@ printALl(['Apple', 'Banana']);
 printALl(['Apple', 'Banana']);
 var echo2 = betterEcho; // betterEcho function signature fits in this type that why we can assign that function into it
 console.log(echo2('Something'));
+// Generic Class
+var SimpleMath = /** @class */ (function () {
+    function SimpleMath() {
+    }
+    SimpleMath.prototype.calculate = function () {
+        return +this.baseValue * +this.multiplyValue;
+    };
+    return SimpleMath;
+}());
+var simpleMath = new SimpleMath();
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 30;
+console.log(simpleMath.calculate());

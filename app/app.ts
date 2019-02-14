@@ -42,3 +42,17 @@ type funcType = <T>(data: T) => T;
 const echo2: funcType = betterEcho; // betterEcho function signature fits in this type that why we can assign that function into it
 
 console.log(echo2<string>('Something'))
+
+// Generic Class
+class SimpleMath <T> {
+    baseValue: T;
+    multiplyValue: T;
+    calculate(): number {
+        return +this.baseValue * +this.multiplyValue;
+    }
+}
+
+const simpleMath = new SimpleMath();
+simpleMath.baseValue = 10;
+simpleMath.multiplyValue = 30;
+console.log(simpleMath.calculate());
