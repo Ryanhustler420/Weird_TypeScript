@@ -40,7 +40,9 @@ var SimpleMath = /** @class */ (function () {
     };
     return SimpleMath;
 }());
+// const simpleMath = new SimpleMath();
 var simpleMath = new SimpleMath();
 simpleMath.baseValue = 10;
+// simpleMath.baseValue = '10'; throw error
 simpleMath.multiplyValue = 30;
 console.log(simpleMath.calculate());

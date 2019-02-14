@@ -44,7 +44,7 @@ const echo2: funcType = betterEcho; // betterEcho function signature fits in thi
 console.log(echo2<string>('Something'))
 
 // Generic Class
-class SimpleMath <T> {
+class SimpleMath <T extends number | string> {
     baseValue: T;
     multiplyValue: T;
     calculate(): number {
@@ -52,7 +52,9 @@ class SimpleMath <T> {
     }
 }
 
-const simpleMath = new SimpleMath();
+// const simpleMath = new SimpleMath();
+const simpleMath = new SimpleMath<number>();
 simpleMath.baseValue = 10;
+// simpleMath.baseValue = '10'; throw error
 simpleMath.multiplyValue = 30;
 console.log(simpleMath.calculate());
