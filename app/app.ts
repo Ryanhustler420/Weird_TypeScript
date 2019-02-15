@@ -83,7 +83,17 @@ function editable(value: boolean) {
     }
 }
 
+function overwritable(value: boolean) {
+    return function (target: any, propName: string): any {
+        const newDescriptor: PropertyDescriptor = {
+            writable: value
+        };
+        return newDescriptor;
+    }
+}
+
 class Project {
+    @overwritable(true)
     projectName: string;
 
     constructor(name: string) {
@@ -102,6 +112,7 @@ project.calcBudget = function () {
     console.log(2000);
 }
 project.calcBudget();
+console.log(project)
 
 const plant = new Plant();
 (<any>plant).print(); // here we are calling that function

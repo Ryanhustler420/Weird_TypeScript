@@ -75,6 +75,14 @@ function editable(value) {
         descriptor.writable = value;
     };
 }
+function overwritable(value) {
+    return function (target, propName) {
+        var newDescriptor = {
+            writable: value
+        };
+        return newDescriptor;
+    };
+}
 var Project = /** @class */ (function () {
     function Project(name) {
         this.projectName = name;
@@ -82,6 +90,9 @@ var Project = /** @class */ (function () {
     Project.prototype.calcBudget = function () {
         console.log(1000);
     };
+    __decorate([
+        overwritable(true)
+    ], Project.prototype, "projectName", void 0);
     __decorate([
         editable(false)
     ], Project.prototype, "calcBudget", null);
@@ -93,6 +104,7 @@ project.calcBudget = function () {
     console.log(2000);
 };
 project.calcBudget();
+console.log(project);
 var plant = new Plant();
 plant.print(); // here we are calling that function
 plant.test(); // here we are calling that function
