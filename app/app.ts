@@ -21,6 +21,21 @@ function logging(value: boolean) {
 
 // }
 
+class Engien {
+    static VERSION_NO: string = '123456';
+
+    // Function decorator can be inside any class and can be used as friend function
+    // to pass data from one object to another
+    public getVersion(constructorFn: Function) {
+        constructorFn.prototype.print = function () {
+            this.VERSION_NO = Engien.VERSION_NO;
+            console.log(this);
+        }
+    }
+
+}
+
+
 // Advanced
 function printable(constructorFn: Function) {
     // this function will reciev entire class with constructor function any you can add
@@ -31,7 +46,9 @@ function printable(constructorFn: Function) {
     }
 }
 
-@printable
+const en = new Engien();
+
+@en.getVersion
 class Plant {
     name = "Green Plant"
 }

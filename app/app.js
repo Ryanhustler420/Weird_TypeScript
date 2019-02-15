@@ -24,6 +24,20 @@ function logging(value) {
 // @logging(true)
 // class Car {
 // }
+var Engien = /** @class */ (function () {
+    function Engien() {
+    }
+    // Function decorator can be inside any class and can be used as friend function
+    // to pass data from one object to another
+    Engien.prototype.getVersion = function (constructorFn) {
+        constructorFn.prototype.print = function () {
+            this.VERSION_NO = Engien.VERSION_NO;
+            console.log(this);
+        };
+    };
+    Engien.VERSION_NO = '123456';
+    return Engien;
+}());
 // Advanced
 function printable(constructorFn) {
     // this function will reciev entire class with constructor function any you can add
@@ -33,12 +47,13 @@ function printable(constructorFn) {
         console.log(this);
     };
 }
+var en = new Engien();
 var Plant = /** @class */ (function () {
     function Plant() {
         this.name = "Green Plant";
     }
     Plant = __decorate([
-        printable
+        en.getVersion
     ], Plant);
     return Plant;
 }());
