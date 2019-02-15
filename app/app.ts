@@ -76,6 +76,36 @@ class Plant {
     name = "Green Plant"
 }
 
+// Parameter Decorator
+
+function printInfo(target: any, methodName: string, paramIndex: number) {
+    console.log('Target: ', target);
+    console.log('methodName: ', methodName);
+    console.log('paramsIndex: ', paramIndex);
+}
+
+class Course {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    printStudentNumber(mode: string, @printInfo printAll: boolean) {
+        if (printAll) {
+            console.log(10000);
+        } else {
+            console.log(2000);
+        }
+    }
+
+}
+
+const course = new Course('Maths');
+course.printStudentNumber('Anythhing', true);
+course.printStudentNumber('Anythhing', false);
+
+
 // Method Decorator
 function editable(value: boolean) {
     return function (target: any, propName: string, descriptor: PropertyDescriptor) {
