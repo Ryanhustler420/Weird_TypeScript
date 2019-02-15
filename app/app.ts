@@ -21,14 +21,36 @@ function logging(value: boolean) {
 
 // }
 
-class Engien {
-    static VERSION_NO: string = '123456';
+interface Modal {
+    Honda(constructorFn: Function): void
+    BMW(constructorFn: Function): void
+}
+
+class Engien implements Modal {
+    static HONDA_VERSION_NO: string = '123456';
 
     // Function decorator can be inside any class and can be used as friend function
     // to pass data from one object to another
-    public getVersion(constructorFn: Function) {
+    // decorators
+    public Honda(constructorFn: Function) {
+        // asigning properties to current object
+        constructorFn.prototype.assignDetail = function () {
+            this.VERSION_NO = Engien.HONDA_VERSION_NO;
+            this.COMPANY = "Honda"
+        }
+
+        constructorFn.prototype.test = function () {
+            console.log('trigger');
+        }
+
         constructorFn.prototype.print = function () {
-            this.VERSION_NO = Engien.VERSION_NO;
+            this.assignDetail();
+            console.log(this)
+        }
+    }
+
+    public BMW(constructorFn: Function) {
+        constructorFn.prototype.print = function () {
             console.log(this);
         }
     }
@@ -48,13 +70,14 @@ function printable(constructorFn: Function) {
 
 const en = new Engien();
 
-@en.getVersion
+@en.Honda
 class Plant {
     name = "Green Plant"
 }
 
 const plant = new Plant();
-(<any>plant).print();
+(<any>plant).print(); // here we are calling that function
+(<any>plant).test() // here we are calling that function
 
 
 // tsc -W FOR continued watching

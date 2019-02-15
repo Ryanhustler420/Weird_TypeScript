@@ -21,21 +21,32 @@ var Person = /** @class */ (function () {
 function logging(value) {
     return value ? logged : null;
 }
-// @logging(true)
-// class Car {
-// }
 var Engien = /** @class */ (function () {
     function Engien() {
     }
     // Function decorator can be inside any class and can be used as friend function
     // to pass data from one object to another
-    Engien.prototype.getVersion = function (constructorFn) {
+    // decorators
+    Engien.prototype.Honda = function (constructorFn) {
+        // asigning properties to current object
+        constructorFn.prototype.assignDetail = function () {
+            this.VERSION_NO = Engien.HONDA_VERSION_NO;
+            this.COMPANY = "Honda";
+        };
+        constructorFn.prototype.test = function () {
+            console.log('trigger');
+        };
         constructorFn.prototype.print = function () {
-            this.VERSION_NO = Engien.VERSION_NO;
+            this.assignDetail();
             console.log(this);
         };
     };
-    Engien.VERSION_NO = '123456';
+    Engien.prototype.BMW = function (constructorFn) {
+        constructorFn.prototype.print = function () {
+            console.log(this);
+        };
+    };
+    Engien.HONDA_VERSION_NO = '123456';
     return Engien;
 }());
 // Advanced
@@ -53,12 +64,13 @@ var Plant = /** @class */ (function () {
         this.name = "Green Plant";
     }
     Plant = __decorate([
-        en.getVersion
+        en.Honda
     ], Plant);
     return Plant;
 }());
 var plant = new Plant();
-plant.print();
+plant.print(); // here we are calling that function
+plant.test(); // here we are calling that function
 var Auth = /** @class */ (function () {
     function Auth() {
         this._userData = {};
