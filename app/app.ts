@@ -70,10 +70,38 @@ function printable(constructorFn: Function) {
 
 const en = new Engien();
 
+// @logging(true)
 @en.Honda
 class Plant {
     name = "Green Plant"
 }
+
+// Method Decorator
+function editable(value: boolean) {
+    return function (target: any, propName: string, descriptor: PropertyDescriptor) {
+        descriptor.writable = value;
+    }
+}
+
+class Project {
+    projectName: string;
+
+    constructor(name: string) {
+        this.projectName = name;
+    }
+
+    @editable(false)
+    calcBudget() {
+        console.log(1000);
+    }
+}
+
+const project = new Project('Super Project');
+project.calcBudget();
+project.calcBudget = function () {
+    console.log(2000);
+}
+project.calcBudget();
 
 const plant = new Plant();
 (<any>plant).print(); // here we are calling that function
