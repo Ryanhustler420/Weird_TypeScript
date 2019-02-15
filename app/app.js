@@ -21,14 +21,29 @@ var Person = /** @class */ (function () {
 function logging(value) {
     return value ? logged : null;
 }
-var Car = /** @class */ (function () {
-    function Car() {
+// @logging(true)
+// class Car {
+// }
+// Advanced
+function printable(constructorFn) {
+    // this function will reciev entire class with constructor function any you can add
+    // any function you like in its prototype and than use this as `@printable` keyword above the class keyword
+    // as shown below
+    constructorFn.prototype.print = function () {
+        console.log(this);
+    };
+}
+var Plant = /** @class */ (function () {
+    function Plant() {
+        this.name = "Green Plant";
     }
-    Car = __decorate([
-        logging(true)
-    ], Car);
-    return Car;
+    Plant = __decorate([
+        printable
+    ], Plant);
+    return Plant;
 }());
+var plant = new Plant();
+plant.print();
 var Auth = /** @class */ (function () {
     function Auth() {
         this._userData = {};

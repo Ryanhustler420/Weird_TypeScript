@@ -16,10 +16,28 @@ function logging(value: boolean) {
     return value ? logged : null;
 }
 
-@logging(true)
-class Car {
+// @logging(true)
+// class Car {
 
+// }
+
+// Advanced
+function printable(constructorFn: Function) {
+    // this function will reciev entire class with constructor function any you can add
+    // any function you like in its prototype and than use this as `@printable` keyword above the class keyword
+    // as shown below
+    constructorFn.prototype.print = function () {
+        console.log(this);
+    }
 }
+
+@printable
+class Plant {
+    name = "Green Plant"
+}
+
+const plant = new Plant();
+(<any>plant).print();
 
 
 // tsc -W FOR continued watching
