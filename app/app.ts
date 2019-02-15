@@ -260,3 +260,5 @@ new Auth()
 
 // 1. connect to the database according to NODE_ENV
 // 2. Populate data my method call and passes the require data
+
+// npm install --save jquery
