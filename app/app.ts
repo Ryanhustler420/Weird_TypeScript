@@ -8,6 +8,20 @@ class Person {
     }
 }
 
+
+// Factory 
+
+
+function logging(value: boolean) {
+    return value ? logged : null;
+}
+
+@logging(true)
+class Car {
+
+}
+
+
 // tsc -W FOR continued watching
 
 interface Credentials {
