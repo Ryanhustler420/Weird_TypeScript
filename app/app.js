@@ -23,6 +23,8 @@ var Person = /** @class */ (function () {
 }());
 require("jQuery");
 $('#app').css({ "background-color": "green" });
+// Translating JavaScript to TypeScript with TypeScript Definition Files
+// https://github.com/DefinitelyTyped/DefinitelyTyped <= Repos
 // Factory 
 function logging(value) {
     return value ? logged : null;
@@ -132,9 +134,9 @@ var Project = /** @class */ (function () {
 }());
 var project = new Project('Super Project');
 project.calcBudget();
-project.calcBudget = function () {
-    console.log(2000);
-};
+// project.calcBudget = function () {
+//     console.log(2000);
+// }
 project.calcBudget();
 console.log(project);
 var plant = new Plant();

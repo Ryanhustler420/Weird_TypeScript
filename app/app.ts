@@ -12,8 +12,8 @@ import "jQuery";
 
 $('#app').css({ "background-color": "green" })
 
-
-
+// Translating JavaScript to TypeScript with TypeScript Definition Files
+// https://github.com/DefinitelyTyped/DefinitelyTyped <= Repos
 
 // Factory 
 
@@ -144,9 +144,9 @@ class Project {
 
 const project = new Project('Super Project');
 project.calcBudget();
-project.calcBudget = function () {
-    console.log(2000);
-}
+// project.calcBudget = function () {
+//     console.log(2000);
+// }
 project.calcBudget();
 console.log(project)
 
