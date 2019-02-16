@@ -11,6 +11,9 @@
 
     <script>
         SystemJS.config({
+            map: {
+                "jQuery": "./node_modules/jquery/dist/jquery.min.js"
+            },
             baseURL: '/',
             packages: {
                 '/': {
@@ -24,7 +27,7 @@
 </head>
 
 <body>
-
+    <div id="app">Change it with jQuery</div>
 </body>
 
 </html>

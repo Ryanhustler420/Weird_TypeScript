@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 function logged(constructorFn) {
     console.log(constructorFn);
 }
@@ -20,6 +21,8 @@ var Person = /** @class */ (function () {
     ], Person);
     return Person;
 }());
+require("jQuery");
+$('#app').css({ "background-color": "green" });
 // Factory 
 function logging(value) {
     return value ? logged : null;
