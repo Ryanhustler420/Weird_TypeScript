@@ -221,6 +221,10 @@ new Auth()
     .done(function (err, success) {
     console.log(err, success);
 });
+// password Match With
+// usernameLengthMustBeGraterThan
+// usernameLengthMustBeLessThan(10)
+//  must be valid email
 // let second = new Auth();
 // console.log(first===second);
 // database

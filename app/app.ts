@@ -266,6 +266,10 @@ new Auth()
     .done((err: str_OR_null, success: str_OR_null) => {
         console.log(err, success);
     });
+    // password Match With
+    // usernameLengthMustBeGraterThan
+    // usernameLengthMustBeLessThan(10)
+    //  must be valid email
 
 // let second = new Auth();
 // console.log(first===second);
