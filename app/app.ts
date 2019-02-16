@@ -15,6 +15,13 @@ $('#app').css({ "background-color": "green" })
 // Translating JavaScript to TypeScript with TypeScript Definition Files
 // https://github.com/DefinitelyTyped/DefinitelyTyped <= Repos
 
+// There is a Third Party Librery which you can install in your computer -g to access all packages type incl. jquery
+// npm install -g typings
+// typings install dt~jquery --global --save
+
+// `dt~jquery` , since definitelyTyped is big librery so we use just a part of it, that's why we used '~' sign
+// `dt~packagename` <- as an example
+
 // Factory 
 
 
