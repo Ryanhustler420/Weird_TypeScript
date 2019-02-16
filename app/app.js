@@ -27,6 +27,10 @@ $('#app').css({ "background-color": "green" });
 // https://github.com/DefinitelyTyped/DefinitelyTyped <= Repos
 // There is a Third Party Librery which you can install in your computer -g to access all packages type incl. jquery
 // npm install -g typings
+// typings install dt~jquery --global --save
+// `dt~jquery` , since definitelyTyped is big librery so we use just a part of it, that's why we used '~' sign
+// `dt~packagename` <- as an example
+// npm install --save-dev @types/jquery
 // Factory 
 function logging(value) {
     return value ? logged : null;

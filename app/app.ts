@@ -22,6 +22,8 @@ $('#app').css({ "background-color": "green" })
 // `dt~jquery` , since definitelyTyped is big librery so we use just a part of it, that's why we used '~' sign
 // `dt~packagename` <- as an example
 
+
+// npm install --save-dev @types/jquery
 // Factory 
 
 
