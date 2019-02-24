@@ -309,3 +309,9 @@ new Auth()
 // 2. Populate data my method call and passes the require data
 
 // npm install --save jquery
+
+//  If the tsconfig.json is lives other than your root directory than you can use
+//  tsc -project config/tsconfig.json
+//  tsc -project ./config/tsconfig.json
+//  Or
+//  tsc -p config/tsconfig.json
